@@ -1,6 +1,6 @@
 markdown: rdiscount
 permalink: /:year/:month/:title/
-url: http://geeklu.com
+url: http://jayfans3.github.io
 author: 卢克
 pygments: true
 paginate: 24
