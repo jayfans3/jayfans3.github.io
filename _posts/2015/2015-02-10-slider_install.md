@@ -19,19 +19,33 @@ mvn clean package -Phbase-app-package -Dpkg.version=0.98.4-hadoop2 -Dpkg.name=hb
 python slider.py install-package --name HBASE --package /mnt/hgfs/apache_git_src/incubator-slider/app-packages/hbase/target/slider-hbase-app-package-0.62.0-SNAPSHOT.zip --replacepkg --fs ocean00:9000
 ### 配置appconfig resource 
 ### 启动slider
-python slider.py create oceantest --template appConfig.json --resources resources.json --manager ocean00:8032 --fs ocean00:9000
-以下命令测试使用：
-> 
-python slider.py stop oceantest --manager ocean00:8032 --fs ocean00:9000
-python slider.py registry --list  --manager ocean00:8032 --fs ocean00:9000
-python slider.py registry --listconf --name hbase  --manager ocean00:8032 --fs ocean00:9000
-python slider.py status  --manager ocean00:8032 --fs ocean00:9000
-python slider.py registry --getconf quicklinks --name hbase  --manager ocean00:8032 --fs ocean00:9000
-python slider.py flex hbase --component HBASE_MASTER 2  --manager ocean00:8032 --fs ocean00:9000
-python slider.py flex hbase --component HBASE_REGIONSERVER 8  --manager ocean00:8032 --fs ocean00:9000
-python slider.py registry --listconf --nameoceantes1t--manager ocean00:8032 --fs ocean00:9000
-python slider.py registry --getconf quicklinks --name oceantes1t--manager ocean00:8032 --fs ocean00:9000
-python slider.py registry --getconf core-site --name oceantest --manager ocean00:8032 --fs ocean00:9000 --out core-site.xml
-python slider.py registry --getconf hbase-site --name oceantest --manager ocean00:8032 --fs ocean00:9000 -out hbase-site.xml
-python slider.py registry --getconf hdfs-site --name oceantest --manager ocean00:8032 --fs ocean00:9000 --out hdfs-site.xml
 
+python slider.py create oceantest --template appConfig.json --resources resources.json --manager ocean00:8032 --fs ocean00:9000
+
+
+以下命令测试使用：
+
+
+```python slider.py stop oceantest --manager ocean00:8032 --fs ocean00:9000
+
+python slider.py registry --list  --manager ocean00:8032 --fs ocean00:9000
+
+python slider.py registry --listconf --name hbase  --manager ocean00:8032 --fs ocean00:9000
+
+python slider.py status  --manager ocean00:8032 --fs ocean00:9000
+
+python slider.py registry --getconf quicklinks --name hbase  --manager ocean00:8032 --fs ocean00:9000
+
+python slider.py flex hbase --component HBASE_MASTER 2  --manager ocean00:8032 --fs ocean00:9000
+
+python slider.py flex hbase --component HBASE_REGIONSERVER 8  --manager ocean00:8032 --fs ocean00:9000
+
+python slider.py registry --listconf --nameoceantes1t--manager ocean00:8032 --fs ocean00:9000
+
+python slider.py registry --getconf quicklinks --name oceantes1t--manager ocean00:8032 --fs ocean00:9000
+
+python slider.py registry --getconf core-site --name oceantest --manager ocean00:8032 --fs ocean00:9000 --out core-site.xml
+
+python slider.py registry --getconf hbase-site --name oceantest --manager ocean00:8032 --fs ocean00:9000 -out hbase-site.xml
+
+python slider.py registry --getconf hdfs-site --name oceantest --manager ocean00:8032 --fs ocean00:9000 --out hdfs-site.xml```
