@@ -8,20 +8,19 @@ tags:
 - 安装
 ---
 
-### 一.启动minicluster集群,zk,rm,nm nn,dn,ssh
-> 
+###启动minicluster集群,zk,rm,nm nn,dn,ssh
 ./hadoop jar ../share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-2.6.0-tests.jar minicluster  -rmport 8032 -jhsport 9080 -nnport 9000 -namenode hdfs://ocean00:9000 -Dyarn.nodemanager.delete.debug-delay-sec=256 -Dyarn.nodemanager.delete.debug-delay-sec=3600
-### 二.slider修改env.sh java_home hadoop_conf_dir
-###三.创建hdfs目录/user/{user}
-## 四.制作hbasezip
+### slider修改env.sh java_home hadoop_conf_dir
+###创建hdfs目录/user/{user}
+### 制作hbasezip
 mvn clean package -Phbase-app-package -Dpkg.version=0.98.4-hadoop2 -Dpkg.name=hbase-0.98.4-hadoop2-bin.tar.gz -Dpkg.src=/home/ocean/app/oceanslider
 (注意-bin去掉)
-###四.上传zip
+###上传zip
 python slider.py install-package --name HBASE --package /mnt/hgfs/apache_git_src/incubator-slider/app-packages/hbase/target/slider-hbase-app-package-0.62.0-SNAPSHOT.zip --replacepkg --fs ocean00:9000
-### 五.配置appconfig resource 
-### 六.启动slider
+### 配置appconfig resource 
+### 启动slider
 python slider.py create oceantest --template appConfig.json --resources resources.json --manager ocean00:8032 --fs ocean00:9000
-以下命令：
+以下命令测试使用：
 > 
 python slider.py stop oceantest --manager ocean00:8032 --fs ocean00:9000
 python slider.py registry --list  --manager ocean00:8032 --fs ocean00:9000
