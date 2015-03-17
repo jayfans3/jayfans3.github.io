@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: slider-0.40安装
