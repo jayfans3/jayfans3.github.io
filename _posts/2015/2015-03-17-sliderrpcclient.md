@@ -28,4 +28,4 @@ RPC的最基础实现是
 
 那么服务到底做了什么
 
-![slideryarnrpc](images/Image.png "slideryarnrpc客户端操作")
+![slideryarnrpc](/images/Image.png "slideryarnrpc客户端操作")
