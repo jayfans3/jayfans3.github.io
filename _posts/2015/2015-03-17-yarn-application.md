@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 编写yarn概念步骤
+title: 编写yarn程序步骤
 categories:
 - 逻辑与现象
 - yarn服务设计使用
@@ -11,7 +11,7 @@ tags:
 ---
 
 
-编写yarn概念步骤
+编写yarn程序步骤
 --------------
 
 ###client:
