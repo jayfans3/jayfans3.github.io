@@ -2,7 +2,7 @@
 layout: post
 title: 大时代感悟
 categories:
-- 意义与逻辑
+- 人
 tags:
 - 书
 ---
