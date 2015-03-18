@@ -2,7 +2,7 @@
 layout: post
 title: slider中到底谁会去调用rpc??
 categories:
-- 现象与使用
+- 逻辑与现象
 - slider 服务设计
 tags:
 - slider

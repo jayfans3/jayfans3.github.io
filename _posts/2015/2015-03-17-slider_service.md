@@ -2,7 +2,7 @@
 layout: post
 title: slider使用的服务及逻辑
 categories:
-- 现象与使用
+- 逻辑与现象
 - slider 服务设计
 tags:
 - slider
@@ -42,7 +42,7 @@ tags:
 
   首先是启序列服务。
 
-
+这个是workflowsequece
 -----------------
 	/**
 	 * This resembles the YARN CompositeService, except that it
@@ -69,3 +69,37 @@ tags:
 	 * New service instances MAY be added to a running instance -but no guarantees
 	 * can be made as to whether or not they will be run.
 	 */
+
+
+----------------
+
+	// initAndAddService(providerService);
+	
+	//sliderAMProvider = new SliderAMProviderService();
+	//yarnRPC = YarnRPC.create(serviceConf);
+	// asyncRMClient = AMRMClientAsync.createAMRMClientAsync(heartbeatInterval, this);
+	//nmClientAsync = new NMClientAsyncImpl("nmclient", this);
+	//startSliderRPCServer();
+	//startRegistrationService();
+	// startAgentWebApp(appInformation, serviceConf);
+	//webApp = new SliderAMWebApp(registry);
+	//new WebAppService<SliderAMWebApp>("slider", webApp);
+	//appState.buildInstance(instanceDefinition,
+	          serviceConf,
+	          providerConf,
+	          providerRoles,
+	          fs.getFileSystem(),
+	          historyDir,
+	          liveContainers,
+	          appInformation,
+	          new SimpleReleaseSelector());
+	//launchService = new RoleLaunchService(actionQueues,
+	                                          providerService,
+	                                          fs,
+	                                          new Path(getGeneratedConfDir()),
+	                                          envVars,
+	                                          launcherTmpDirPath);
+	// sliderAMProvider.start();
+	    // launch the real provider; this is expected to trigger a callback that
+	    // starts the node review process
+	//launchProviderService(instanceDefinition, confDir);providerService start

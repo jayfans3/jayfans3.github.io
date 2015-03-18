@@ -2,7 +2,7 @@
 layout: post
 title: slider 概念名词
 categories:
-- 现象与使用
+- 逻辑与现象
 - slider 服务设计
 tags:
 - slider

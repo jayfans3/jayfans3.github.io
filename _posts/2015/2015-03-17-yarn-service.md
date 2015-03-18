@@ -2,7 +2,7 @@
 layout: post
 title: yarn中服务和事件库的使用
 categories:
-- 现象与使用
+- 逻辑与现象
 - yarn服务设计使用
 tags:
 - 服务

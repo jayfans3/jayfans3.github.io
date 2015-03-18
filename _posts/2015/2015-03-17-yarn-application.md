@@ -2,7 +2,7 @@
 layout: post
 title: 编写yarn概念步骤
 categories:
-- 现象与使用
+- 逻辑与现象
 - yarn服务设计使用
 tags:
 - yarn
