@@ -42,7 +42,8 @@ tags:
 
   首先是启序列服务。
 
-这个是workflowsequece
+####这个是workflowsequece
+
 -----------------
 	/**
 	 * This resembles the YARN CompositeService, except that it
@@ -70,6 +71,7 @@ tags:
 	 * can be made as to whether or not they will be run.
 	 */
 
+####这个是sliderammaster主要的逻辑
 
 ----------------
 
