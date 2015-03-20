@@ -1,6 +1,6 @@
 ---
 layout: post
-title: slider使用的服务及逻辑4
+title: slider使用的服务及逻辑4(未)
 categories:
 - 逻辑与现象
 - slider 服务设计
