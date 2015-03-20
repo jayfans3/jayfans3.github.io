@@ -1,6 +1,6 @@
 ---
 layout: post
-title: slider使用的服务及逻辑
+title: slider使用的服务及逻辑4
 categories:
 - 逻辑与现象
 - slider 服务设计
@@ -16,31 +16,8 @@ tags:
  
  接着：[slider概念](http://jayfans3.github.io/2015/03/slider_server/)
 
- > **我的逻辑:**
+ > **我的code:**
 
-> 工作流：main序列图
-
-###工作流组合类（可发射的）：
-- sliderAppMaster
-- sliderClient
-- slider(SliderYarnClientImpl,YARNRegistryClient)
-###单一类：
-- 工作流rpc
-- **工作流执行服务**：队列服务，role服务 调度回调 fork服务
-- **工作流序列服务**：HBase/SliderAm/agent/....ProviderService
-
-
- 
-基本上所有的服务都在此了。底层抽象service具备服务启停抽象，abstractservice发育初始化抽象，它是服务的祖先，所有服务均可init配置。它的孩子有很多。
-  
- 组合服务可以包括进其他服务（addService）并依次启动，有可被监听特征，子孙slideram，sliderclient,slider，可以包含其他所有的服务，控制了服务的周期。例如**sliderClient内控制了yarnrpc服务和注册服务。sliderappMaster控制了大部分服务**。
-
- 其他的服务，线程类服务加入<E extends ExecutorService>泛型,它的孩子分别是队列服务，role服务，调度服务，分支服务。**队列服务可以添加执行的线程按照顺序执行slider操作，slider使用延迟队列服务来处理抽象slider操作，可延迟特性来自（JDK1.5Delayed）,**
-
- **下面讲下它包含的概念和逻辑。**
-为了真实反应am内做的事情，进行了代码分析，摘要代码为：
-
-  首先是启动两个callbacker服务，在启动slider本身的rpc服务，启动注册服务，启动agentweb,amweb,c1注册，初始化完成agentprovider服务，生成实例，运行role(队列，agent),amp和agentp绑定当前状态和队列，启动操作处理队列，启动amp，启动现象级agentp.
 
 
 ####app state
@@ -53,7 +30,7 @@ tags:
 	 * initialization.
 	 */
 
-####slider rpc service 
+####rpcservice代码
 
 	SliderClusterProtocolPBImpl protobufRelay =
 	        new SliderClusterProtocolPBImpl(this);
@@ -110,41 +87,6 @@ tags:
 	 * New service instances MAY be added to a running instance -but no guarantees
 	 * can be made as to whether or not they will be run.
 	 */
-
-####这个是sliderammaster主要的逻辑
-
-----------------
-
-	// initAndAddService(providerService);
-	
-	//sliderAMProvider = new SliderAMProviderService();
-	//yarnRPC = YarnRPC.create(serviceConf);
-	// asyncRMClient = AMRMClientAsync.createAMRMClientAsync(heartbeatInterval, this);
-	//nmClientAsync = new NMClientAsyncImpl("nmclient", this);
-	//startSliderRPCServer();
-	//startRegistrationService();
-	// startAgentWebApp(appInformation, serviceConf);
-	//webApp = new SliderAMWebApp(registry);
-	//new WebAppService<SliderAMWebApp>("slider", webApp);
-	//appState.buildInstance(instanceDefinition,
-	          serviceConf,
-	          providerConf,
-	          providerRoles,
-	          fs.getFileSystem(),
-	          historyDir,
-	          liveContainers,
-	          appInformation,
-	          new SimpleReleaseSelector());
-	//launchService = new RoleLaunchService(actionQueues,
-	                                          providerService,
-	                                          fs,
-	                                          new Path(getGeneratedConfDir()),
-	                                          envVars,
-	                                          launcherTmpDirPath);
-	// sliderAMProvider.start();
-	    // launch the real provider; this is expected to trigger a callback that
-	    // starts the node review process
-	//launchProviderService(instanceDefinition, confDir);providerService start
 
 
 
@@ -240,7 +182,9 @@ queceservice 队列工作流服务
 	 * <p>
 	 * Hadoop's {@link org.apache.hadoop.util.Shell} class assumes it is executing
 	 * a short lived application; this class allows for the process to run for the
-	 * life of the Java process that forked it.
+	 * life of the Java process that f
+	 * 
+	 * orked it.
 	 * It is designed to be embedded inside a YARN service, though this is not
 	 * the sole way that it can be used
 	 * <p>
@@ -254,3 +198,25 @@ queceservice 队列工作流服务
 	 * </ol>
 	 * 
 	 */
+
+
+
+renewing机制
+------------
+无
+
+
+
+接口多继承的意义
+----------
+	public interface ProviderService extends ProviderCore,
+	    Service,
+	    RMOperationHandlerActions,
+	    ExitCodeProvider 
+
+
+
+概念四
+----------
+
+单例队列服务
