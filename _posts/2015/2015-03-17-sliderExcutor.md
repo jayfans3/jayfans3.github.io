@@ -1,6 +1,6 @@
 ---
 layout: post
-title: slider使用的服务及逻辑2-线程池服务
+title: slider使用的服务及逻辑2-线程池服务(未)
 categories:
 - 逻辑与现象
 - slider 服务设计

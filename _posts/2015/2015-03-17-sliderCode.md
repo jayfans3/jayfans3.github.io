@@ -10,7 +10,7 @@ tags:
 ---
 
 
-<i class="icon-file"></i>slider使用的服务及逻辑
+<i class="icon-file"></i>slider使用的服务及逻辑(未)
 ============
 
  
