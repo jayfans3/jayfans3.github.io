@@ -24,7 +24,7 @@ tags:
  > 上层real pb point调用ayacaction，放入队列执行delay的run，或其他队列的run(),
 up:
 qucenservice ，是一个excutor平台,本身也是一个三种队列操作，rolelaunchservie绑定quece的队列，
-- 每一种服务都自己创造executorpool，进行线程操作。
+- 每一种线程池服务都自己创造executorpool，进行线程操作。
 - 
 **队列服务可以添加执行slider操作，延迟队列服务来处理抽象slider操作，可延迟特性来自（JDK1.5Delayed）,队列操作会通过appstate通知给实例，也会执行真正的slidercluster操作。同时会操作yarn的container
 runnable或delay是thread,具有run方法。
