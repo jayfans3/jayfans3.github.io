@@ -1,6 +1,6 @@
 ---
 layout: post
-title: slider client序列图
+title: slider client序列
 categories:
 - 逻辑与现象
 - slider 服务设计
