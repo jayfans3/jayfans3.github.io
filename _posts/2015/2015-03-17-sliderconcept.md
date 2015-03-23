@@ -31,6 +31,9 @@ slider 概念名词
 	 程序关闭钩子
 	 key概念 是set的钥匙 作为门栓
 	 principal 校长 负责人
+	 Diagnostics
+	 role
+	
 
 
 

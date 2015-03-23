@@ -83,7 +83,7 @@ createAndRunCluster:
 	// startAgentWebApp(appInformation, serviceConf);
 	//webApp = new SliderAMWebApp(registry);
 	//new WebAppService<SliderAMWebApp>("slider", webApp);
-	//appState.buildInstance(instanceDefinition,
+	//**appState.buildInstance(instanceDefinition,
 	          serviceConf,
 	          providerConf,
 	          providerRoles,
@@ -91,18 +91,25 @@ createAndRunCluster:
 	          historyDir,
 	          liveContainers,
 	          appInformation,
-	          new SimpleReleaseSelector());
+	          new SimpleReleaseSelector());**
 	//launchService = new RoleLaunchService(actionQueues,
 	                                          providerService,
 	                                          fs,
 	                                          new Path(getGeneratedConfDir()),
 	                                          envVars,
 	                                          launcherTmpDirPath);
-	// sliderAMProvider.start();
+
+	 //Give the provider access to the state, and AM
+    providerService.bind(stateForProviders, actionQueues, liveContainers);
+    sliderAMProvider.bind(stateForProviders, actionQueues, liveContainers);
+
+ 	 startQueueProcessing();
+	 sliderAMProvider.start();
 	    // launch the real provider; this is expected to trigger a callback that
 	    // starts the node review process
-	//launchProviderService(instanceDefinition, confDir);providerService start
-	//重用锁
+	launchProviderService(instanceDefinition, confDir);providerService start
+
+	重用锁ReentrantLock
 
 
 

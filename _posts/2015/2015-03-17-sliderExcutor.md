@@ -20,14 +20,12 @@ tags:
 
 线程池服务大概有四种：队列池服务，role池服务，分支池，callback池。
 
- > 队列池服务，里面有三个主要的队列。立即，延迟，重做，将延迟放入立即队列，executor运行这个操作，
- > 上层real pb point调用ayacaction，放入队列执行delay的run，或其他队列的run(),
+ > 队列池服务，里面有三个主要的队列。立即，延迟，重做，将延迟放入立即队列，executor运行这个操作，#  #
+ > 上层real pb point调用ayscaction，放入队列执行delayed的run，或其他队列的run(),
 up:
-qucenservice ，是一个excutor平台,本身也是一个三种队列操作，rolelaunchservie绑定quece的队列，
-- 每一种线程池服务都自己创造executorpool，进行线程操作。
-- 
-**队列服务可以添加执行slider操作，延迟队列服务来处理抽象slider操作，可延迟特性来自（JDK1.5Delayed）,队列操作会通过appstate通知给实例，也会执行真正的slidercluster操作。同时会操作yarn的container
-runnable或delay是thread,具有run方法。
+queceservice ，是一个excutor平台,本身也是一个三种队列操作，rolelaunchservie绑定quece的队列，每一种线程池服务都自己创造executorpool，进行线程操作。am容器分配时候运行roleservice的role方法，role（）用来把startcontainer操作放入立即队列，并开始分配container，并history。
+
+**队列服务可以添加执行slider操作，延迟队列服务来处理抽象slider操作，可延迟特性来自（JDK1.5Delayed）,队列操作会通过appstate通知给实例，也会执行真正的slidercluster操作。同时会操作yarn的container，runnable或delay是队列服务运行的对象。
 
 > **note:**启动队列服务，并执行队列执行者。
 
@@ -97,7 +95,7 @@ runnable或delay是thread,具有run方法。
 
 
 
-概念二：BlockingDeque
+概念二：BlockingDeque 双向阻塞队列
 ---------------
 
 	
@@ -260,6 +258,34 @@ runnable或delay是thread,具有run方法。
 	public interface Deque<E> extends Queue<E> {
 
 
+概念am分配容器期做的事情。
+-------------
+
+
+
+	//amcontainer完成就启动container，每个请求一个roleservice,启动container
+	@SuppressWarnings("SynchronizationOnLocalVariableOrMethodParameter")
+	  @Override //AMRMClientAsync
+	  public void onContainersAllocated(List<Container> allocatedContainers) {
+	    LOG_YARN.info("onContainersAllocated({})", allocatedContainers.size());
+	    List<ContainerAssignment> assignments = new ArrayList<ContainerAssignment>();
+	    List<AbstractRMOperation> operations = new ArrayList<AbstractRMOperation>();
+	    
+	    //app state makes all the decisions
+	    appState.onContainersAllocated(allocatedContainers, assignments, operations);
+	
+	    //for each assignment: instantiate that role
+	    for (ContainerAssignment assignment : assignments) {
+	      RoleStatus role = assignment.role;
+	      Container container = assignment.container;
+	      launchService.launchRole(container, role, getInstanceDefinition());
+	    }
+	    
+	    //for all the operations, exec them
+	    executeRMOperations(operations);
+	    log.info("Diagnostics: " + getContainerDiagnosticInfo());
+	  }
+
 
 概念三： 接口作为参数传递的意义
 ---------
@@ -278,12 +304,3 @@ runnable或delay是thread,具有run方法。
 	    this.provider = provider;
 	    this.envVars = envVars;
 	  }
-
-
-
-
-
-概念四
-----------
-
-单例队列服务

@@ -40,7 +40,7 @@ tags:
  **序列：**
 
 
-  首先是启动两个callbacker服务，在启动slider本身的rpc服务，启动注册服务，启动agentweb,amweb,c1注册，初始化完成agentprovider服务，生成实例，运行role服务(队列，agent),amproviderservice和agentproviderservice绑定当前状态和队列，启动操作处理队列，启动amproviderservice，启动实际的agentproviderservice.
+  首先是启动两个callbacker服务，在启动slider本身的rpc服务，启动注册服务，启动agentweb,amweb,c1注册，初始化完成agentprovider服务，生成实例，创建role服务(创建container用),amproviderservice和agentproviderservice绑定当前状态和队列，启动操作处理队列服务，启动amproviderservice，启动实际的agentproviderservice.
 
 
 
@@ -74,7 +74,12 @@ tags:
 	                                          new Path(getGeneratedConfDir()),
 	                                          envVars,
 	                                          launcherTmpDirPath);
-	// sliderAMProvider.start();
+	//Give the provider access to the state, and AM
+    providerService.bind(stateForProviders, actionQueues, liveContainers);
+    sliderAMProvider.bind(stateForProviders, actionQueues, liveContainers);
+
+ 	 startQueueProcessing();
+	 sliderAMProvider.start();
 	    // launch the real provider; this is expected to trigger a callback that
 	    // starts the node review process
 	//launchProviderService(instanceDefinition, confDir);providerService start
