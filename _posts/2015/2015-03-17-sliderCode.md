@@ -1,6 +1,6 @@
 ---
 layout: post
-title: slider使用的服务及逻辑4(未)
+title: slider使用的服务及逻辑4
 categories:
 - 逻辑与现象
 - slider 服务设计
@@ -10,7 +10,7 @@ tags:
 ---
 
 
-<i class="icon-file"></i>slider使用的服务及逻辑(未)
+slider使用的服务及逻辑
 ============
 
  
