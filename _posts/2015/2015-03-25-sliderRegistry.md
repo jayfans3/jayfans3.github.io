@@ -13,6 +13,11 @@ tags:
 
 #注册服务
 
+
+看这个里面有pdf：
+
+[umbrella yarn-913](https://issues.apache.org/jira/browse/YARN-913)
+
 概念：
 ========
 

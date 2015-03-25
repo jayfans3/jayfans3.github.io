@@ -10,6 +10,10 @@ tags:
 - 使用
 ---
 
+看看这个
+
+[http://macrochen.iteye.com/blog/1366136](http://macrochen.iteye.com/blog/1366136)
+
 
 Curator uses Fluent Style
 

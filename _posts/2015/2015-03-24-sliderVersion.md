@@ -2,12 +2,11 @@
 layout: post
 title: slider版本历史
 categories:
-- 使用
+- 逻辑与现象
 - slider 使用
 tags:
 - slider
 - 服务
-- 使用
 ---
 
 
