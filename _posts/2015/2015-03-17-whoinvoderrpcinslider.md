@@ -29,3 +29,38 @@ RPC的最基础实现是
 那么服务到底做了什么
 
 ![slideryarnrpc](/images/Image.png "slideryarnrpc客户端操作")
+
+客户端得到代理，使用协议
+	RpcBinder：
+	
+	 public static SliderClusterProtocol connectToServer(InetSocketAddress addr,
+	                                                    UserGroupInformation currentUser,
+	                                                    Configuration conf,
+	                                                    int rpcTimeout) throws IOException {
+	    Class<SliderClusterProtocolPB> sliderClusterAPIClass = registerSliderAPI(
+	        conf);
+	
+	    log.debug("Connecting to Slider AM at {}", addr);
+	    ProtocolProxy<SliderClusterProtocolPB> protoProxy =
+	      RPC.getProtocolProxy(sliderClusterAPIClass,
+	                           1,
+	                           addr,
+	                           currentUser,
+	                           conf,
+	                           NetUtils.getDefaultSocketFactory(conf),
+	                           rpcTimeout,
+	                           null);
+	    SliderClusterProtocolPB endpoint = protoProxy.getProxy();
+	    return new SliderClusterProtocolProxy(endpoint);
+	  }
+	  liderClusterProtocolProxy implements SliderClusterProtocol ,代理帮助客户端来操作SliderClusterProtocolPB endpoint句柄，通过PB来取得结果
+	
+	
+	getProtocolEngine(protocol,conf).getProxy(protocol, clientVersion,
+	        addr, ticket, conf, factory, rpcTimeout, connectionRetryPolicy);
+	
+
+
+具体的SERVICE端调用一样会使用
+
+

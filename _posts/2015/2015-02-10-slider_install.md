@@ -2,7 +2,8 @@
 layout: post
 title: slider-0.70安装
 categories:
-- 使用
+- 逻辑与现象
+- slider 使用
 tags:
 - slider
 - 安装
