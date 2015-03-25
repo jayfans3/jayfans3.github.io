@@ -63,51 +63,52 @@ connect to the service
 
 注册意义发现
 ----------------
-1.没有yarn
-2注册信息要比实例存活长，解耦实例。
-3.组件发布info
-4.绑定实例
-5.组件实例使用注册
-6.不自动注册
+1. 没有yarn
+2. 注册信息要比实例存活长，解耦实例。
+3. 组件发布info
+4. 绑定实例
+5. 组件实例使用注册
+6. 不自动注册
 
 注册关键点
 ============
-1.动态注册 （绑定并发现、绑定不随服务移动而移动或是因为HAfailover)
-2.endpoint多样
-3.注册服务属性：ha,scale,Ubiquity
-4.分层命名
-5.跨语言
-6.读写控制
-7.远程读写
+1. 动态注册 （绑定并发现、绑定不随服务移动而移动或是因为HAfailover)
+2. endpoint多样
+3. 注册服务属性：ha,scale,Ubiquity
+4. 分层命名
+5. 跨语言
+6. 读写控制
+7. 远程读写
 
 
--Service Record: application. info
+- Service Record: application. info
 - persistence attribute policies 0-5
 - Endpoint
--Address Type(path url )
+- Address Type(path url )
 
 
 eg:
 
-/users/devteam/tomcat/components/container-1408631738011-0001-01-000001 (ephemeral)
-{
-"registrationTime" : 1408638082445,
-"id" : "container_1408631738011_0001_01_000001",
-"persistence" : "1",
-"description" : null,
-"external" : [ {
-"api" : "www",
-"addressType" : "uri",
-"protocolType" : "REST",
-"addresses" : [ [ "http://rack4server3:43572" ] ]
-} ],
-"internal" : [ {
-"api" : "jmx",
-"addressType" : "host/port",
-"protocolType" : "JMX",
-"addresses" : [ [ "rack4server3", "43573" ] ]
-} ]
-}
+	/users/devteam/tomcat/components/container-1408631738011-0001-01-000001 (ephemeral) 
+
+	{
+	"registrationTime" : 1408638082445,
+	"id" : "container_1408631738011_0001_01_000001",
+	"persistence" : "1",
+	"description" : null,
+	"external" : [ {
+	"api" : "www",
+	"addressType" : "uri",
+	"protocolType" : "REST",
+	"addresses" : [ [ "http://rack4server3:43572" ] ]
+	} ],
+	"internal" : [ {
+	"api" : "jmx",
+	"addressType" : "host/port",
+	"protocolType" : "JMX",
+	"addresses" : [ [ "rack4server3", "43573" ] ]
+	} ]
+	}
 
 
 存取设计：
