@@ -18,12 +18,13 @@ slider使用的服务及逻辑-线程池服务
 
  > **我的逻辑:**
 
-线程池服务大概有四种：队列池服务，role池服务，分支池，callback池。
+线程池服务(excutorservice container)大概有四种：队列池服务，role池服务，分支池，callback池。每一种线程池服务都自己创造executorpool,进行线程操作。
 
- > 队列池服务，里面有三个主要的队列。立即，延迟，重做，将延迟放入立即队列，executor运行这个操作，#  #
- > 上层real pb point调用ayscaction，放入队列执行delayed的run，或其他队列的run(),
-up:
-queceservice ，是一个excutor平台,本身也是一个三种队列操作，rolelaunchservie绑定quece的队列，每一种线程池服务都自己创造executorpool，进行线程操作。am容器分配时候运行roleservice的role方法，role（）用来把startcontainer操作放入立即队列，并开始分配container，并history。
+ > 队列池服务，里面有三个主要的队列。立即，延迟，重做，将延迟放入立即队列，executor运行这个操作.
+ > 
+ > 上层real pb point调用ayscaction，放入队列执行delayed的run，或其他队列的run()
+ > rolelaunchservie和providerservice绑定quece的队列，amcontainerallocated时候运行roleservice的role()，role()用来把startcontainer操作放入立即队列，并开始startcontainer，并由historyserver来 record history。
+
 
 **队列服务可以添加执行slider操作，延迟队列服务来处理抽象slider操作，可延迟特性来自（JDK1.5Delayed）,队列操作会通过appstate通知给实例，也会执行真正的slidercluster操作。同时会操作yarn的container，runnable或delay是队列服务运行的对象。
 

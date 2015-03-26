@@ -14,12 +14,7 @@ tags:
 ============
 
 概念：
-record
-
-RegistryOperations
-
-
-> 
+ 
 	yarn序列：
 	addContainerRequest ->amrm
 	startContainerAsync -> nmrm startContainer rolelaunceer
@@ -28,10 +23,14 @@ RegistryOperations
 
 
 
-> application 配置结束后，启动队列和amprovider,privoderservcie,后序列为：
+------------------
+Application Master Initialization Completed
+
+> am 初始化完成后，启动队列和amprovider,privoderservcie,后序列为：
 > 
->  flexcluster->reviewRequestAndReleaseNode
->  在onContainersCompleted（）->reviewRequestAndReleaseNodes（）->放入队列服务->最终它检查rolestatus一个个的查看是否改变，改变了就ContainerAssignment（派发container）
+> 执行当前的命令 flexcluster->reviewRequestAndReleaseNode（）
+>  
+>  或者在onContainersCompleted（）->reviewRequestAndReleaseNodes（）->放入队列服务->最终它检查rolestatus一个个的查看是否改变，改变了就ContainerAssignment（派发container）
 
 下面是关键的代码
 -------------
