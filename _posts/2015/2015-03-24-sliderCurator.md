@@ -1,6 +1,6 @@
 ---
 layout: post
-title: slider curator
+title: slider curator 使用
 categories:
 - 逻辑与现象
 - slider 使用
