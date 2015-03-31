@@ -51,6 +51,34 @@ slider默认如果超过阙值container起不来的话是放弃本地性数据�
 用失败次数记录不对的，不仅失败，还要周期内重置它，这要可以记录组件失败次数。
 
 
+
+AM to decide when to relax placement policy from specific host to rack/cluster
+
+
+
+[https://issues.apache.org/jira/browse/SLIDER-825](https://issues.apache.org/jira/browse/SLIDER-825) **strict placement skip de-affinitisation process**
+
+upon:
+
+[https://issues.apache.org/jira/browse/SLIDER-799](https://issues.apache.org/jira/browse/SLIDER-799)
+
+[https://issues.apache.org/jira/browse/YARN-3309](https://issues.apache.org/jira/browse/YARN-3309) **Capacity scheduler can wait a very long time for node locality**
+
+
+upon:
+
+[https://issues.apache.org/jira/browse/SLIDER-611](https://issues.apache.org/jira/browse/SLIDER-611)
+
+[https://issues.apache.org/jira/browse/SLIDER-823](https://issues.apache.org/jira/browse/SLIDER-823)
+
+-----------
+[https://issues.apache.org/jira/browse/SLIDER-829](https://issues.apache.org/jira/browse/SLIDER-829)当allocated，能取消
+
+[https://issues.apache.org/jira/browse/SPARK-2687](https://issues.apache.org/jira/browse/SPARK-2687)
+
+
+
+
 --------------------------------------------------------------------------
 
 
@@ -59,13 +87,22 @@ slider默认如果超过阙值container起不来的话是放弃本地性数据�
 ##关于 affinity/anti-affinity 
 
 
-将相同的label的不同的组件当做不同container请求来处理，比如两个版本的hbase拥有regionserver相同标签，那么都会放入一个
-[https://issues.apache.org/jira/browse/YARN-1042](https://issues.apache.org/jira/browse/YARN-1042)
+将相同的label的不同的组件当做不同container请求来处理，比如两个版本的hbase拥有
+
+[https://issues.apache.org/jira/browse/YARN-1042](https://issues.apache.org/jira/browse/YARN-1042)**regionserver相同标签，那么都会放入一个**
+
+
+[https://issues.apache.org/jira/browse/SLIDER-823](https://issues.apache.org/jira/browse/SLIDER-823)**Über-3**
+
+upon:
 
 [https://issues.apache.org/jira/browse/SLIDER-82](https://issues.apache.org/jira/browse/SLIDER-82)
 
+[https://issues.apache.org/jira/browse/SLIDER-726](https://issues.apache.org/jira/browse/SLIDER-726) container
+
 [https://issues.apache.org/jira/browse/TWILL-87](https://issues.apache.org/jira/browse/TWILL-87)
 
+注：
 There would be a conflit with the YARN configuration that YARN won't return the container on the same node
 
 We remember where nodes where and ask for it back on the same location (though if that request fails, put that location at the end of list of nodes to ask for)
@@ -74,77 +111,38 @@ Normally this is a best-effort request; you can set "yarn.placement.policy" to r
 
 see org.apache.slider.providers.PlacementPolicy
 
+[https://issues.apache.org/jira/browse/SLIDER-691](https://issues.apache.org/jira/browse/SLIDER-691)
 
+Allow specification using the percentage of memory allowed
+Ideally YARN would support anti-affinity, so the "I need >50% of RAM" becomes a moot point. You would only need to ask for what you want and rely on YARN to scatter the containers
 
----------------------------------------------
-
-##AM to decide when to relax placement policy from specific host to rack/cluster
-
-
-
-[https://issues.apache.org/jira/browse/YARN-3309](https://issues.apache.org/jira/browse/YARN-3309)
-
-[https://issues.apache.org/jira/browse/SLIDER-799](https://issues.apache.org/jira/browse/SLIDER-799)
-
-
-
------------------------------------------------
 
 slider container jira:
 -----
-REST操作slidercluster使用 ，thrift
 
+除去其他都是REST操作slidercluster使用 ，thrift，看重要jira:
 
-看jira 
 [https://issues.apache.org/jira/browse/SLIDER-702](https://issues.apache.org/jira/browse/SLIDER-702) #
 
-[https://issues.apache.org/jira/browse/SLIDER-532](https://issues.apache.org/jira/browse/SLIDER-532)docker
+[https://issues.apache.org/jira/browse/SLIDER-532](https://issues.apache.org/jira/browse/SLIDER-532)**docker**
+
+[https://issues.apache.org/jira/browse/SLIDER-629](https://issues.apache.org/jira/browse/SLIDER-629) **threshold accurate**
+
+[https://issues.apache.org/jira/browse/SLIDER-764](https://issues.apache.org/jira/browse/SLIDER-764)**specification of minimum number of live containers**
+
+[https://issues.apache.org/jira/browse/SLIDER-787](https://issues.apache.org/jira/browse/SLIDER-787)**upgrade reconfig slider**
 
 
-
-container：
------------
-[https://issues.apache.org/jira/browse/SLIDER-829](https://issues.apache.org/jira/browse/SLIDER-829)当allocated，能取消
-
-[https://issues.apache.org/jira/browse/SPARK-2687](https://issues.apache.org/jira/browse/SPARK-2687)
+[https://issues.apache.org/jira/browse/SLIDER-600](https://issues.apache.org/jira/browse/SLIDER-600)**reload different roles**
 
 
-[https://issues.apache.org/jira/browse/SLIDER-743](https://issues.apache.org/jira/browse/SLIDER-743) 
+[https://issues.apache.org/jira/browse/SLIDER-773](https://issues.apache.org/jira/browse/SLIDER-773)**Add co-processor support for app packages**
 
-###Add co-processor support for app packages
-
-[https://issues.apache.org/jira/browse/SLIDER-799](https://issues.apache.org/jira/browse/SLIDER-799)
-
-[https://issues.apache.org/jira/browse/SLIDER-726](https://issues.apache.org/jira/browse/SLIDER-726) container
-
-[https://issues.apache.org/jira/browse/SLIDER-629](https://issues.apache.org/jira/browse/SLIDER-629) #
-
-
-https://issues.apache.org/jira/browse/SLIDER-764
-
-https://issues.apache.org/jira/browse/SLIDER-787
-
-https://issues.apache.org/jira/browse/SLIDER-629
-
-https://issues.apache.org/jira/browse/SLIDER-600
-
-https://issues.apache.org/jira/browse/SPARK-3561
-
-
-https://issues.apache.org/jira/browse/SLIDER-825
-
-
-https://issues.apache.org/jira/browse/SLIDER-773
-
-https://issues.apache.org/jira/browse/SLIDER-611
+[695]doAs mechannisms for explore and some idea
 
 
 
 
-------------
-https://issues.apache.org/jira/browse/SLIDER-691
-
-https://issues.apache.org/jira/browse/SLIDER-695
 
 
 
