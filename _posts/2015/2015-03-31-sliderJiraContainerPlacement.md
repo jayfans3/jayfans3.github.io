@@ -1,6 +1,6 @@
 ---
 layout: post
-title: slider的管理container逻辑
+title: sliderJira和containerPlaceMent逻辑
 categories:
 - 逻辑与现象
 - slider 服务设计
@@ -10,11 +10,14 @@ tags:
 ---
 
 
-slider的管理container逻辑(未)
+sliderJira和containerPlaceMent逻辑
 ============
 
-[https://issues.apache.org/jira/browse/SLIDER-743](https://issues.apache.org/jira/browse/SLIDER-743):
 
+[doAs](#doAs)
+
+[https://issues.apache.org/jira/browse/SLIDER-743](https://issues.apache.org/jira/browse/SLIDER-743):
+ 
 选择位置需要暗示：（包含历史）
 slider默认如果超过阙值container起不来的话是放弃本地性数据，启动成功。
 但是有些应用是不合理的
@@ -58,14 +61,14 @@ AM to decide when to relax placement policy from specific host to rack/cluster
 
 [https://issues.apache.org/jira/browse/SLIDER-825](https://issues.apache.org/jira/browse/SLIDER-825) **strict placement skip de-affinitisation process**
 
-upon:
+depends upon:
 
 [https://issues.apache.org/jira/browse/SLIDER-799](https://issues.apache.org/jira/browse/SLIDER-799)
 
 [https://issues.apache.org/jira/browse/YARN-3309](https://issues.apache.org/jira/browse/YARN-3309) **Capacity scheduler can wait a very long time for node locality**
 
 
-upon:
+depends upon:
 
 [https://issues.apache.org/jira/browse/SLIDER-611](https://issues.apache.org/jira/browse/SLIDER-611)
 
@@ -138,8 +141,9 @@ slider container jira:
 
 [https://issues.apache.org/jira/browse/SLIDER-773](https://issues.apache.org/jira/browse/SLIDER-773)**Add co-processor support for app packages**
 
-[695]doAs mechannisms for explore and some idea
 
+### doAs
+[695]**doAs** mechannisms for explore and some idea
 
 
 
