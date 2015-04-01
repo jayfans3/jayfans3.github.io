@@ -36,7 +36,6 @@ tags:
 - 虚拟cpu
 
 ###能做的事情（语义）
---
 - 某节点某capacity container
 - 某rack某capacity container
 - blacklist
@@ -53,8 +52,8 @@ tags:
 ##调度模型
 
 ###概念1 capacity->container
---
--  **drf 多用户多资源调度变为单调度****incremental placement 增量资源分配**采用浪费vs饿死**all or nothing**
+
+- **drf 多用户多资源调度变为单调度****incremental placement 增量资源分配**采用浪费vs饿死**all or nothing**
 - 双层资源调度模型am-container 研究第一层
 - pull心跳缓冲
 - 心跳状态机
@@ -72,7 +71,6 @@ tags:
 ##调度实现使用：
 
 ###capacityScheduler特性配置
--
 - capacity%
 - maximum-capacity%
 - minimun-user-limit-percent%
@@ -99,7 +97,6 @@ tags:
 
 
 ##fair scheduler 实现
--
 - NODE_UPDATE/APP_ADDED/APP_REMOVED/NODE_ADDED/NODE_REMOVED/CONTAINER_EXPRIED
 - **调度策略决定了叶子队列和非叶子队列是叶间调度还是内部程序调度**
 - **三级资源分配策略**
@@ -129,7 +126,7 @@ tags:
 
 
 ###决定抢占
---
+
 - R=F(min,running+run,父兄节点共享) if u>R then决定抢占
 
 ###代价小
