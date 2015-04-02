@@ -1,14 +1,16 @@
 ---
 layout: post
-title: yarn使用和spark运行模式
+title: quick started standalone
 categories:
 - 逻辑与现象
 - spark
 tags:
 - spark
-- yarn
 ---
 
 
- yarn使用和spark运行模式
+ quick started standalone
 ============
+
+
+##使用
