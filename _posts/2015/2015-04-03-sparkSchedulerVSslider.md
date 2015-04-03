@@ -10,10 +10,12 @@ tags:
 - slider
 ---
 
-spark架构VSslider架构初识 slider关闭spark on yarn with slider jira 思考
+spark架构VSslider架构初识 -slider关闭spark on yarn with slider jira思考
 ============
 
-   最近整理的两个重点中，有yarn中关于resourcescheduler调度的东西，主要是公平调度，rdf多路复用，抢占，treequece,三点资源分配，到此只负责到container分配问题，而真正用户程序如何满足自身调度（操作）程序管理，留给用户实现；另一个重点是关于TaskSchduler能够做到粗粒度的资源的调度管理，给出了一个比较好的用户级的操作策略。结合之前的SliderAmMaster分析，比较其中区别联系。
+
+最近整理的两个重点中，有yarn中关于resourcescheduler调度的东西，主要是公平调度，rdf多路复用，抢占，treequece,三点资源分配，到此只负责到container分配问题，而真正用户程序如何满足自身调度（操作）程序管理，留给用户实现；另一个重点是关于TaskSchduler能够做到粗粒度的资源的调度管理，给出了一个比较好的用户级的操作策略。结合之前的SliderAmMaster分析，比较其中区别联系。
+
 
 | 功能        | slider           | spark  |
 | :------------- |:-------------| :-----|
@@ -38,5 +40,8 @@ spark架构VSslider架构初识 slider关闭spark on yarn with slider jira 思�
 | am 粒度 | 控制的是服务 粗   |  控制的是excutor，里有多个task-partition 粗|
 
 
+
+
+--------------
 
  上述逻辑需要重新认识。但是可以说明长时间服务运行以及区别出不同服务运行，与短时服务spark的stage区别不同业务的方式有很多差别，有些可以互相借鉴，有些本身就是使用，出现有其意义。以后文章再做讨论。
