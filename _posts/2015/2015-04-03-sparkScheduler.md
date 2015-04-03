@@ -1,6 +1,6 @@
 ---
 layout: post
-title: sparkScheduler
+title: TaskScheduler决定spark运行模式及使用
 categories:
 - 逻辑与现象
 - spark
@@ -10,7 +10,7 @@ tags:
 ---
 
 
- sparkScheduler
+ TaskScheduler决定spark使用
 ============
 
 spark运行方式：
