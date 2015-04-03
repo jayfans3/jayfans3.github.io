@@ -1,6 +1,6 @@
 ---
 layout: post
-title: slider关闭spark on yarn with slider jira 思考-spark架构VSslider架构
+title: spark架构VSslider架构初识
 categories:
 - 逻辑与现象
 - spark
@@ -10,18 +10,22 @@ tags:
 - slider
 ---
 
-
- slider关闭spark on yarn with slider jira 思考
+spark架构VSslider架构初识 slider关闭spark on yarn with slider jira 思考
 ============
 
    最近整理的两个重点中，有yarn中关于resourcescheduler调度的东西，主要是公平调度，rdf多路复用，抢占，treequece,三点资源分配，到此只负责到container分配问题，而真正用户程序如何满足自身调度（操作）程序管理，留给用户实现；另一个重点是关于TaskSchduler能够做到粗粒度的资源的调度管理，给出了一个比较好的用户级的操作策略。结合之前的SliderAmMaster分析，比较其中区别联系。
 
 | 功能        | slider           | spark  |
-| ------------- |:-------------:| -----:|
+| :------------- |:-------------| :-----|
+
 | am client      | 略 | 略 |
+
 | am  管理ui     | 相同      |   相同 |
+
 | am webapp | 相同     |  相同 |
+
 | am 注册rm | 相同     |  相同 |
+
 | am 注册长时服务 | 支持运行container内部服务注册     |  不支持 |
 | am providerservice | 支持各种服务运行的提供者编程     |  不需要，excutor都很简单 |
 | am 自定义rpc通信 | 支持am操作服务（比如伸缩，动态伸缩（目前不支持），启停container里的服务）     |  TaskSchduler和DAGschduler负责简单通知启动excutorbackend,不支持手动的excutor的粗粒度整体操作，更不支持更细粒度的操作 |
