@@ -1,6 +1,6 @@
 ---
 layout: post
-title: slider关闭spark on yarn with slider jira 思考
+title: slider关闭spark on yarn with slider jira 思考-spark架构VSslider架构
 categories:
 - 逻辑与现象
 - spark
@@ -35,4 +35,4 @@ tags:
 
 
 
- 上述逻辑需要重新认识。但是可以说明长时间服务运行以及区别出不同服务运行，与短时服务spark的stage区别不同业务的方式有很多差别，有些可以互相借鉴，有些本身就是使用，出现有其意义。
+ 上述逻辑需要重新认识。但是可以说明长时间服务运行以及区别出不同服务运行，与短时服务spark的stage区别不同业务的方式有很多差别，有些可以互相借鉴，有些本身就是使用，出现有其意义。以后文章再做讨论。
