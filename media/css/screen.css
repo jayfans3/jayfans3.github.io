@@ -55,6 +55,8 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 2;
+	border-collapse:collapse;
+	cellPadding:2;
 }
 
 body{
