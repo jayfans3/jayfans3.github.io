@@ -85,11 +85,11 @@ DAG实现:
 
 **获取逻辑:ShuffleMapTask ResultTask**
 
-ShuffleMapTask
+ShuffleMapTask **中间结果的task**
 
 - mapstatus ->blockmanager
 
-resultTask
+resultTask **finalstage对应的任务最重结果**
 
 - DirectTaslResult
 - InDirectTaskResult 大于10m序列化
@@ -120,7 +120,7 @@ resultTask
 
 ##池采用了调度池非队列管理TaskSetManager,非服务操作。
 
-- fifo:管理tasksetmanager,
+- fifo:管理tasksetmanagerh
 - fair:管理下一级调度池或者tasksetmanager,minshare weight
 - 限于app 调度池，app-job-stage-tastset 不是整个yarn中的app的调度池
 - 常驻yarn-client的sparkContext算一个app,代理了多个server连接的app的job
