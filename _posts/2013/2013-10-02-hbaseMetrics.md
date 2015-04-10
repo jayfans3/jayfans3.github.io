@@ -12,5 +12,5 @@ tags:
 
 #hbase metrics
 
-![](/images/3/1.jpg)
-![](/images/3/2.jpg)
+![](/images/3/1.png)
+![](/images/3/2.png)
