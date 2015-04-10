@@ -30,7 +30,7 @@ DAG与task的使用
 #DAG(directed acyclic graph )
 
 
- 
+![](/images/3/3.jpg)
 
 
 调度
