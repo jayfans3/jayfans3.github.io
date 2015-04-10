@@ -2,7 +2,7 @@
 layout: post
 title: 关于hbaaes0.94 监控源码框架分享
 categories:
-- hbase
+- 监控
 tags:
 - hbase
 - metrics

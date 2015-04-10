@@ -2,7 +2,7 @@
 layout: post
 title: hbase 指标
 categories:
-- hbase
+- 监控
 tags:
 - hbase
 - metrics
