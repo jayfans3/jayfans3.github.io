@@ -26,6 +26,7 @@ Catalyst
 
 ###LogicalPlan
 
+- unresolvedrelation 意思就是还没有bind，等待绑定
 - LogicalPlan继承自QueryPlan，内部带一个reference:Set[Attribute]，主要方法为resolve(name:String): Option[NamedeExpression]，用于分析生成对应的NamedExpression
 - LeafNode-DDLcommand: set,describe,cache,native
 - UnaryNode:sort,distinct,aggregate,filter,limit,subquery
