@@ -1,6 +1,6 @@
 ---
 layout: post
-title: hbase使用boolmFilter
+title: hbase使用bloomFilter
 categories:
 - 人
 tags:
@@ -9,7 +9,7 @@ tags:
 
 
 
-#hbase使用boolmFilter
+#hbase使用bloomFilter
 
 get：
 

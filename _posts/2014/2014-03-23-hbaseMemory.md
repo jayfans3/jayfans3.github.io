@@ -12,12 +12,13 @@ tags:
 #Hbase内存架构
 
 概念：
-- memstore
-- mslab
-- backetcache
-- blockcache
-- lsm
-- hlog wal
-- cms,fullgc
+
+- memstore:0.2
+- lsm b+变种
+- mslab +LTAB 碎片
+- blockcache:0.6 lru backetcache加载时机一致性
+- hlog wal: write的容错replay，>1 WAL
+- cms,fullgc 优化
+- 
 
 

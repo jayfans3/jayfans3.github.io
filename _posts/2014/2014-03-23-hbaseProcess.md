@@ -13,8 +13,15 @@ tags:
 
 概念：
 
-- hfile23
-- compression
-- split
-- append,compaction
+- master所有进程
+- zk
+- regionserver所有进程
+- mvcc
+- 各个级锁
+- 归并排序
+- 双向队列
+- 路由策略
+- blancer:robin,否定hash,cost-based
+- 代价
+- HA
 - 
