@@ -2,42 +2,42 @@
 layout: post
 title: Hbase Flush
 categories:
-- ÈË
+- äºº
 tags:
-- Êé
+- ä¹¦
 ---
 
 
 
 #Hbase Flush
 
-¸ÅÄî£º
+æ¦‚å¿µï¼š
 
 
 stripe compaction
 
-Ã¬¶Ü£º
+çŸ›ç›¾ï¼š
 
-0. ÍÌÍÂÁ¿´ï->region¶à->store¶à->memstore¶à->flush¶à->compact¶à->Ó°Ïì¶ÁÐ´
-1. Ä³rowkey·¶Î§´óÁ¿put£¬µ«ÒªÕû¸östore×ömajor compact.
-2. split´ú¼Û´ó
+0. åžåé‡è¾¾->regionå¤š->storeå¤š->memstoreå¤š->flushå¤š->compactå¤š->å½±å“è¯»å†™
+1. æŸrowkeyèŒƒå›´å¤§é‡putï¼Œä½†è¦æ•´ä¸ªstoreåšmajor compact.
+2. splitä»£ä»·å¤§
 
-½â¾ö£º
+è§£å†³ï¼š
 
 level:
 
-2. ·Ölevel0£¬level1:ÁÙÊ±mem flush,bulkloadÎÄ¼þ£¬stripeÎÄ¼þ
-7. level0-1ÉÏÉýºÏ²¢¡£
-4. ÈÝ´íÓÐlevel1»ØÍËlevel0ÖØÐÂcompaction
-9. Ëã·¨leve0-n:1.Í¬Ò»²ãrowkey²»ÖØ2.±ßºÏ²¢±ßÉ¾³ý£ºlruÂäleveµÍ£¬·Ö²ãºÏ²¢²»ÊÇËùÓÐµÄºÏ²¢¡£
-10. compaction·ç±©²ãÊýÒªÉÙ
+2. åˆ†level0ï¼Œlevel1:ä¸´æ—¶mem flush,bulkloadæ–‡ä»¶ï¼Œstripeæ–‡ä»¶
+7. level0-1ä¸Šå‡åˆå¹¶ã€‚
+4. å®¹é”™æœ‰level1å›žé€€level0é‡æ–°compaction
+9. ç®—æ³•leve0-n:1.åŒä¸€å±‚rowkeyä¸é‡2.è¾¹åˆå¹¶è¾¹åˆ é™¤ï¼šlruè½leveä½Žï¼Œåˆ†å±‚åˆå¹¶ä¸æ˜¯æ‰€æœ‰çš„åˆå¹¶ã€‚
+10. compactioné£Žæš´å±‚æ•°è¦å°‘
 
 level1-stripe:
-1. regionÏÂ°´rowkey»®·Östripe
-3. »®·Ö¹æÔò:´óÐ¡×Ô¶¯ÇÐ£¬miniregions¸öÊý
-5. getÉ¨Ãæ¸ü¾Û¼¯µ½level1ÉÏ
-6. scan stripeÅÅÐò£¿//snapshot²»¾ÍÒÑ¾­ÅÅÐòÁËÂð£¿
-8. ÌáÉýsplit,Ö±½Ó¶¨Î»¿½±´
+1. regionä¸‹æŒ‰rowkeyåˆ’åˆ†stripe
+3. åˆ’åˆ†è§„åˆ™:å¤§å°è‡ªåŠ¨åˆ‡ï¼Œminiregionsä¸ªæ•°
+5. getæ‰«é¢æ›´èšé›†åˆ°level1ä¸Š
+6. scan stripeæŽ’åºï¼Ÿ//snapshotä¸å°±å·²ç»æŽ’åºäº†å—ï¼Ÿ
+8. æå‡split,ç›´æŽ¥å®šä½æ‹·è´
 
 
 
@@ -45,22 +45,23 @@ level1-stripe:
 ---------------
 
 
-.Yali
-2.jiekout jieou 
-3.chengdu drquery git branch ¨Cr 
-4. ·µ»ØÊý¾ÝË÷Òý 
-5.·ÖÒ³ 
+1. Yali
+2. jiekout jieou 
+3. chengdu drquery git branch â€“r 
+4. è¿”å›žæ•°æ®ç´¢å¼• 
+5. åˆ†é¡µ 
 
 
 
 
 -------
-0.flush Ë¢region¼¶µÄ£¬
-1. ÅÅÐò£ºregionÄÚmemstore 
-2. bestflushableregionÑ¡region:storeµÄhbase.hstore.blockingStoreFiles²»µ½£¬memstore×î¶àµÄregion£º. ²»µ½ÇÒ×î¶à
+
+0. flush åˆ·regionçº§çš„ï¼Œ
+1. æŽ’åºï¼šregionå†…memstore 
+2. bestflushableregioné€‰region:storeçš„hbase.hstore.blockingStoreFilesä¸åˆ°ï¼Œmemstoreæœ€å¤šçš„regionï¼š. ä¸åˆ°ä¸”æœ€å¤š
 3. bestanyregion maxMemstore
-4. 3³¬2Á½±¶µÄ»°£¬ÓÐcompactionÒ²Ñ¡Õâ¸öreigon,3£¬·ñÔòÑ¡2
-5. regionÒ»¸ö mvcc£¬¶ÁÐ´²¢·¢£¬ÐèÒªÐ´memstore
-6. flush×èÈûrow¸üÐÂËø£¬snapshot->memstore.
-7. ¶ømvccÐ´µÄÊÇmemstore£¬ mvcc¶Á°æ±¾µ½µ±Ç°Ð´°æ±¾
-8. mvcc¶ÔmemstoreµÄupdatelock¶ÁËøÊÍ·Å£¬flushÒªµÈ´ýmvccÐ´ËøÊÍ·Å£¬µÈ´ýÄ¿Ç°µÄÐ´°æ±¾ºÅ
+4. 3è¶…2ä¸¤å€çš„è¯ï¼Œæœ‰compactionä¹Ÿé€‰è¿™ä¸ªreigon,3ï¼Œå¦åˆ™é€‰2
+5. regionä¸€ä¸ª mvccï¼Œè¯»å†™å¹¶å‘ï¼Œéœ€è¦å†™memstore
+6. flushé˜»å¡žrowæ›´æ–°é”ï¼Œsnapshot->memstore.
+7. è€Œmvccå†™çš„æ˜¯memstoreï¼Œ mvccè¯»ç‰ˆæœ¬åˆ°å½“å‰å†™ç‰ˆæœ¬
+8. mvccå¯¹memstoreçš„updatelockè¯»é”é‡Šæ”¾ï¼Œflushè¦ç­‰å¾…mvccå†™é”é‡Šæ”¾ï¼Œç­‰å¾…ç›®å‰çš„å†™ç‰ˆæœ¬å·
