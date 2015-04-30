@@ -33,6 +33,7 @@ level:
 10. compaction风暴层数要少
 
 level1-stripe:
+
 1. region下按rowkey划分stripe
 3. 划分规则:大小自动切，miniregions个数
 5. get扫面更聚集到level1上
