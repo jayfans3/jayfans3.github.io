@@ -8,7 +8,6 @@ comments: yes
 
 pink  floyd
 
-个人简历: [resume](http://github.com/jayfans3/jayfans3.github.io/images/resume.pdf)
 
 个人邮箱:jayfasn3@gmail.com      
 新浪微博: [http://weibo.com/1190951070](http://weibo.com/1190951070)      
