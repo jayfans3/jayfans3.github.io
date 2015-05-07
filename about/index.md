@@ -15,6 +15,6 @@ pink  floyd
 [点击下载简历](/images/resume.pdf)     
 
 
-新浪微博: [http://weibo.com/1190951070](http://weibo.com/1190951070)    
+新浪微博: [http://weibo.com/1190951070](http://weibo.com/1190951070)
   
-github : [http://github.com/jayfans3](http://github.com/jayfans3)      
+github : [http://github.com/jayfans3](http://github.com/jayfans3)
