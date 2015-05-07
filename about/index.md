@@ -11,7 +11,8 @@ pink  floyd
 
 个人邮箱:jayfasn3@gmail.com
 
-简历 : ![简历](/images/resume.pdf)     
+
+[点击下载简历](/images/resume.pdf)     
 
 
 新浪微博: [http://weibo.com/1190951070](http://weibo.com/1190951070)    
